@@ -55,13 +55,15 @@ let index = 10;
 const todoReducer = (state = initState, action) => {
   switch (action.type) {
     case ADD_TODO:
+      console.log("title", action.payload);
       return {
         ...state,
         todos: [
           ...state.todos,
           {
             id: index++,
-            ...action.payload
+            title: action.payload,
+            completed: false
           }
         ]
       };
