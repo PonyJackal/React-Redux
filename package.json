@@ -8,6 +8,7 @@
   ],
   "main": "src/index.js",
   "dependencies": {
+    "@reduxjs/toolkit": "^1.5.0",
     "react": "16.13.1",
     "react-dom": "16.13.1",
     "react-redux": "7.2.2",
