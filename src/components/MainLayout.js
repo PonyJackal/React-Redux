@@ -1,22 +1,27 @@
 import React, { useState, useRef, useCallback } from "react";
-import { connect } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import TodoList from "./TodoList";
 import useDebounce from "../libs/useDebounce";
 import useToggle from "../libs/useToggle";
 import { addTodo, toggleTodo } from "../store/actions/TodoActions";
 
-const MainLayout = ({ todos, addTodo, toggleTodo }) => {
+const MainLayout = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [findCompleted, toggle] = useToggle(false);
   const debouncedSearch = useDebounce(searchTerm, 500);
+
+  const dispatch = useDispatch();
+  const todos = useSelector(state => state.todoReducer.todos);
+  const addTodoTrigger = useCallback((title) => dispatch(addTodo(title)),[dispatch])
+  const toggleTodoTrigger = useCallback((id) => dispatch(toggleTodo(id)),[dispatch])
 
   const index = useRef(10);
   const newTodo = useRef("");
 
   const onAdd = () => {
     if (newTodo.current.value) {
-      addTodo(newTodo.current.value);
+      addTodoTrigger(newTodo.current.value);
       index.current++;
     }
 
@@ -30,7 +35,7 @@ const MainLayout = ({ todos, addTodo, toggleTodo }) => {
 
   const onToggle = useCallback(
     (id) => {
-      toggleTodo(id);
+      toggleTodoTrigger(id);
     },
     [todos]
   );
@@ -68,11 +73,4 @@ const MainLayout = ({ todos, addTodo, toggleTodo }) => {
   );
 };
 
-const mapStateToProps = (state) => ({ todos: state.TodoReducer.todos });
-
-const mapDispatchToProps = (dispatch) => ({
-  addTodo: (todo) => dispatch(addTodo(todo)),
-  toggleTodo: (id) => dispatch(toggleTodo(id))
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(MainLayout);
+export default MainLayout;
