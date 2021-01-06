@@ -68,11 +68,7 @@ const MainLayout = ({ todos, addTodo, toggleTodo }) => {
   );
 };
 
-//const mapStateToProps = (state) => ({ todos: state.TodoReducer.todos });
-const mapStateToProps = (state) => {
-  console.log("state", state.TodoReducer.todos);
-  return { todos: state.TodoReducer.todos };
-};
+const mapStateToProps = (state) => ({ todos: state.TodoReducer.todos });
 
 const mapDispatchToProps = (dispatch) => ({
   addTodo: (todo) => dispatch(addTodo(todo)),
