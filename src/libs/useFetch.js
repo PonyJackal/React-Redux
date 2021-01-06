@@ -17,7 +17,7 @@ const useFetch = (service) => {
     }, [service])
 
     useEffect(() => {
-        fetchAPI
+        fetchAPI()
     }, [fetchAPI])
 
     return {data, error, loading};
