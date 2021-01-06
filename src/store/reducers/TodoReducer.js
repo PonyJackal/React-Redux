@@ -1,3 +1,4 @@
+import { handleActions } from 'redux-actions';
 import { ADD_TODO, TOGGLE_TODO } from "../constants/TodoConstants";
 
 const initState = {
@@ -52,37 +53,30 @@ const initState = {
 
 let index = 10;
 
-const todoReducer = (state = initState, action) => {
-  switch (action.type) {
-    case ADD_TODO:
-      console.log("title", action.payload);
-      return {
-        ...state,
-        todos: [
-          ...state.todos,
-          {
-            id: index++,
-            title: action.payload,
-            completed: false
-          }
-        ]
-      };
-    case TOGGLE_TODO:
-      return {
-        ...state,
-        todos: state.todos.map((todo) => {
-          if (todo.id === action.payload) {
-            return {
-              ...todo,
-              completed: !todo.completed
-            };
-          }
-          return todo;
-        })
-      };
-    default:
-      return state;
-  }
-};
+const todoReducer = handleActions({
+  [ADD_TODO]: (state, action) => ({
+    ...state,
+    todos: [
+      ...state.todos,
+      {
+        id: index++,
+        title: action.payload,
+        completed: false
+      }
+    ]
+  }),
+  [TOGGLE_TODO]: (state, action) => ({
+      ...state,
+      todos: state.todos.map((todo) => {
+        if (todo.id === action.payload) {
+          return {
+            ...todo,
+            completed: !todo.completed
+          };
+        }
+        return todo;
+      })
+    })
+}, initState)
 
 export default todoReducer;
