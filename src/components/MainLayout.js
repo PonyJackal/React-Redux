@@ -1,6 +1,7 @@
 import React, { useState, useRef, useCallback } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import TodoList from "./TodoList";
+import Quote from "./Quote";
 import useDebounce from "../libs/useDebounce";
 import useToggle from "../libs/useToggle";
 import { addTodo, toggleTodo } from "../store/slices/TodoSlice";
@@ -43,6 +44,7 @@ const MainLayout = () => {
   return (
     <div className="TodoApp">
       <h1>Todo List</h1>
+      <Quote />
       <div className="add-new-todo">
         <label>
           Add new Todo: <input type="text" ref={newTodo} />
