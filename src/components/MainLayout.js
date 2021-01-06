@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import TodoList from "./TodoList";
 import useDebounce from "../libs/useDebounce";
 import useToggle from "../libs/useToggle";
-import { addTodo, toggleTodo } from "../store/actions/TodoActions";
+import { addTodo, toggleTodo } from "../store/slices/TodoSlice";
 
 const MainLayout = () => {
   const [searchTerm, setSearchTerm] = useState("");
