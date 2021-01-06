@@ -1,11 +1,6 @@
+import { createAction } from 'redux-actions';
 import { ADD_TODO, TOGGLE_TODO } from "./../constants/TodoConstants";
 
-export const addTodo = (todo) => ({
-  type: ADD_TODO,
-  payload: todo
-});
+export const addTodo = createAction(ADD_TODO, title => title);
 
-export const toggleTodo = (id) => ({
-  type: TOGGLE_TODO,
-  payload: id
-});
+export const toggleTodo = createAction(TOGGLE_TODO, id => id);

@@ -12,7 +12,7 @@ const MainLayout = () => {
   const debouncedSearch = useDebounce(searchTerm, 500);
 
   const dispatch = useDispatch();
-  const todos = useSelector(state => state.todoReducer.todos);
+  const todos = useSelector(state => state.TodoReducer.todos);
   const addTodoTrigger = useCallback((title) => dispatch(addTodo(title)),[dispatch])
   const toggleTodoTrigger = useCallback((id) => dispatch(toggleTodo(id)),[dispatch])
 
