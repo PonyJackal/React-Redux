@@ -1,10 +1,13 @@
 import React, { useState } from 'react'
 import { useHistory } from 'react-router-dom'
+import { useAuth } from './../../providers/AuthProvider'
 import './Login.scss'
 
 const Login = () => {
   //history
   let history = useHistory()
+  //login
+  const { login } = useAuth()
   //sate for form
   const [formData, setFormData] = useState({
     values: {
@@ -45,8 +48,13 @@ const Login = () => {
       isSubmitted: true
     })
 
-    if (isValid)
-      history.push('/')
+    if (isValid) {
+      login({
+        email: formData.values.email
+      })
+      history.push('/home')
+    }
+
   }
   //form validation
   const validation = () => {
