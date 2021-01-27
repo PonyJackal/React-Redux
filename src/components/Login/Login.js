@@ -1,8 +1,10 @@
 import React, { useState } from 'react'
-import { withRouter } from 'react-router-dom'
+import { useHistory } from 'react-router-dom'
 import './Login.scss'
 
-const Login = ({ history }) => {
+const Login = () => {
+  //history
+  let history = useHistory()
   //sate for form
   const [formData, setFormData] = useState({
     values: {
@@ -113,4 +115,4 @@ const Login = ({ history }) => {
   )
 }
 
-export default withRouter(Login)
+export default Login
