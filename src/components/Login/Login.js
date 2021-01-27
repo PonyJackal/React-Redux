@@ -13,7 +13,7 @@ const Login = () => {
       password: ''
     },
     isValid: false,
-    isSubmittted: false
+    isSubmitted: false
   })
   //input change handler
   const handleChange = (event) => {
@@ -23,31 +23,24 @@ const Login = () => {
       values: {
         ...formData.values,
         [name]: value
-      }
+      },
+      isSubmitted: false
     })
   }
   //form submission handler
   const handleSubmit = (event) => {
     const errors = validation()
     const isValid = !errors.email && !errors.password ? true : false
+
     setFormData({
       ...formData,
       errors: {
         email: errors.email,
         password: errors.password
       },
-      isValid: isValid
+      isValid: isValid,
+      isSubmitted: true
     })
-    if (isValid) {
-      setFormData({
-        ...formData,
-        isSubmittted: true,
-        errors: {
-          email: "",
-          password: ""
-        }
-      })
-    }
   }
   //form validation
   const validation = () => {
@@ -76,7 +69,7 @@ const Login = () => {
   return (
     <div className="container">
       <h1>Sign in to continue</h1>
-      {formData.isSubmittted && (
+      {formData.isValid && formData.isSubmitted && (
         <span className="success-msg">Form submitted successfully</span>
       )}
       <form>
