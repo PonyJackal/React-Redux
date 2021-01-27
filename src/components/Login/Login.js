@@ -51,8 +51,10 @@ const Login = () => {
     if (isValid) {
       login({
         email: formData.values.email
+      }).then(res => {
+        console.log(res)
+        history.push('/home')
       })
-      history.push('/home')
     }
 
   }

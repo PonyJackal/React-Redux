@@ -10,6 +10,11 @@ const AuthProvider = (props) => {
             ...user,
             email
         })
+        return new Promise((resolve, reject) => {
+            setTimeout(() => {
+                resolve("Login Success")
+            }, 1000)
+        })
     }
 
     return (
