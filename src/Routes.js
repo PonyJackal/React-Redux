@@ -7,19 +7,24 @@ import {
 import MainLayout from "./components/MainLayout";
 import {
   RouteWithComponent,
-  Login
+  Login,
+  NotFound
 } from './components'
 
 const Routes = () => {
   return (
     <Switch>
       <Redirect exact from='/' to="/home" />
-      <Route path="/login">
+      <Route exact path="/login">
         <Login />
       </Route>
-      <Route path="/home">
+      <Route exact path="/home">
         <RouteWithComponent component={MainLayout} />
       </Route>
+      <Route exact path="/not-found">
+        <RouteWithComponent component={NotFound} />
+      </Route>
+      <Redirect to="not-found" />
     </Switch>
   )
 }
