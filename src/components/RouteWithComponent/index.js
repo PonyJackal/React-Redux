@@ -1,1 +1,1 @@
-export { default } from './RouteWithComponent'
+export { default as RouteWithComponent } from './RouteWithComponent'

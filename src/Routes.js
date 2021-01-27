@@ -4,9 +4,11 @@ import {
   Redirect,
   Route
 } from 'react-router-dom'
-import { default as RouteWithComponent } from './components/RouteWithComponent'
 import MainLayout from "./components/MainLayout";
-import Login from "./components/Login/Login";
+import {
+  RouteWithComponent,
+  Login
+} from './components'
 
 const Routes = () => {
   return (
