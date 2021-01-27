@@ -1,12 +1,12 @@
 import React from "react";
 import {
-  BrowserRouteer as Router,
+  BrowserRouter as Router,
   Switch,
   Route,
   Link,
 } from 'react-router-dom'
 import MainLayout from "./components/MainLayout";
-import Login from "./components/Login";
+import Login from "./components/Login/Login";
 
 import "./styles.css";
 
@@ -14,11 +14,11 @@ const App = () => {
   return (
     <Router>
       <Switch>
-        <Route path="/">
-          <MainLayout />
-        </Route>
         <Route path="/login">
           <Login />
+        </Route>
+        <Route path="/">
+          <MainLayout />
         </Route>
       </Switch>
     </Router>
