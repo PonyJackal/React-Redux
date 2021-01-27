@@ -1,7 +1,8 @@
 import React, { useState } from 'react'
+import { withRouter } from 'react-router-dom'
 import './Login.scss'
 
-const Login = () => {
+const Login = ({ history }) => {
   //sate for form
   const [formData, setFormData] = useState({
     values: {
@@ -41,6 +42,9 @@ const Login = () => {
       isValid: isValid,
       isSubmitted: true
     })
+
+    if (isValid)
+      history.push('/')
   }
   //form validation
   const validation = () => {
@@ -109,4 +113,4 @@ const Login = () => {
   )
 }
 
-export default Login
+export default withRouter(Login)
