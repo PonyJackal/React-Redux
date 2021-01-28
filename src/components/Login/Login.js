@@ -34,7 +34,7 @@ const Login = () => {
     })
   }
   // form submission handler
-  const handleSubmit = (event) => {
+  const handleSubmit = () => {
     const errors = validation()
     const isValid = !!(!errors.email && !errors.password)
 
@@ -51,8 +51,7 @@ const Login = () => {
     if (isValid) {
       login({
         email: formData.values.email,
-      }).then((res) => {
-        console.log(res)
+      }).then(() => {
         history.push('/home')
       })
     }
