@@ -5,14 +5,12 @@ import Routes from './Routes'
 
 import './styles.css'
 
-const App = () => {
-  return (
-    <Router>
-      <AppProviders>
-        <Routes />
-      </AppProviders>
-    </Router>
-  )
-}
+const App = () => (
+  <Router>
+    <AppProviders>
+      <Routes />
+    </AppProviders>
+  </Router>
+)
 
 export default App

@@ -1,14 +1,14 @@
 import React, { useState } from 'react'
 import { useHistory } from 'react-router-dom'
-import { useAuth } from './../../providers/AuthProvider'
+import { useAuth } from '../../providers/AuthProvider'
 import './Login.scss'
 
 const Login = () => {
-  //history
-  let history = useHistory()
-  //login
+  // history
+  const history = useHistory()
+  // login
   const { login } = useAuth()
-  //sate for form
+  // sate for form
   const [formData, setFormData] = useState({
     values: {
       email: '',
@@ -21,7 +21,7 @@ const Login = () => {
     isValid: false,
     isSubmitted: false,
   })
-  //input change handler
+  // input change handler
   const handleChange = (event) => {
     const { name, value } = event.target
     setFormData({
@@ -33,10 +33,10 @@ const Login = () => {
       isSubmitted: false,
     })
   }
-  //form submission handler
+  // form submission handler
   const handleSubmit = (event) => {
     const errors = validation()
-    const isValid = !errors.email && !errors.password ? true : false
+    const isValid = !!(!errors.email && !errors.password)
 
     setFormData({
       ...formData,
@@ -44,7 +44,7 @@ const Login = () => {
         email: errors.email,
         password: errors.password,
       },
-      isValid: isValid,
+      isValid,
       isSubmitted: true,
     })
 
@@ -57,7 +57,7 @@ const Login = () => {
       })
     }
   }
-  //form validation
+  // form validation
   const validation = () => {
     const regex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i
     const errors = {

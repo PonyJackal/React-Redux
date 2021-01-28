@@ -73,7 +73,7 @@ describe('check validation', () => {
     fireEvent.change(inputEmail, { target: { value: 'a@a.com' } })
     fireEvent.change(inputPassword, { target: { value: '1234' } })
     fireEvent.click(submitButton)
-    //show submit text
+    // show submit text
     screen.getByText('Form submitted successfully')
   })
 
@@ -90,9 +90,9 @@ describe('check validation', () => {
     fireEvent.change(inputEmail, { target: { value: 'a@a.com' } })
     fireEvent.change(inputPassword, { target: { value: '1234' } })
     fireEvent.click(submitButton)
-    //show submit text
+    // show submit text
     screen.getByText('Form submitted successfully')
-    //error messages sbould not exist
+    // error messages sbould not exist
     const emailError1 = screen.queryByText('Email cannot be blank')
     const emailError2 = screen.queryByText('Invalid email format')
     const passwordError1 = screen.queryByText('Password cannot be blank')

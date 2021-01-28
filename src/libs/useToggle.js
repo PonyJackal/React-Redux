@@ -4,9 +4,7 @@ const useToggle = (initState = false) => {
   const [status, setStatus] = useState(initState)
 
   const toggle = useCallback(() => {
-    setStatus((status) => {
-      return !status
-    })
+    setStatus((status) => !status)
   }, [])
 
   return [status, toggle]
