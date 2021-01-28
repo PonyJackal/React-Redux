@@ -1,4 +1,5 @@
-import React, { useEffect } from 'react'
+import React from 'react'
+import PropTypes from 'prop-types'
 
 const TodoList = ({ data, searchTerm, onToggle, completed }) => (
   <ul className="todo-container">
@@ -23,5 +24,12 @@ const TodoList = ({ data, searchTerm, onToggle, completed }) => (
       ))}
   </ul>
 )
+
+TodoList.propTypes = {
+  data: PropTypes.array.isRequired,
+  searchTerm: PropTypes.string.isRequired,
+  onToggle: PropTypes.bool.isRequired,
+  completed: PropTypes.bool.isRequired,
+}
 
 export default React.memo(TodoList)

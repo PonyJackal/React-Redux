@@ -61,6 +61,7 @@ const todosSlice = createSlice({
       todos: [
         ...state.todos,
         {
+          // eslint-disable-next-line no-plusplus
           id: index++,
           title: action.payload,
           completed: false,

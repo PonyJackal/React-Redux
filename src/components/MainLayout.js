@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React, { useState, useRef, useCallback } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import TodoList from './TodoList'
@@ -27,6 +28,7 @@ const MainLayout = () => {
   const onAdd = () => {
     if (newTodo.current.value) {
       addTodoTrigger(newTodo.current.value)
+      // eslint-disable-next-line no-plusplus
       index.current++
     }
 
@@ -53,7 +55,9 @@ const MainLayout = () => {
         <label>
           Add new Todo: <input type="text" ref={newTodo} />
         </label>
-        <button onClick={onAdd}>Add</button>
+        <button type="button" onClick={onAdd}>
+          Add
+        </button>
       </div>
       <div className="find-todo">
         <label>

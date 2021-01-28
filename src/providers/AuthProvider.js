@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import { setSourceMapRange } from 'typescript'
 
 const AuthContext = React.createContext()
 
@@ -9,7 +8,7 @@ const AuthProvider = (props) => {
   const login = ({ email }) => {
     setUser({ ...user, email })
 
-    return new Promise((resolve, reject) => {
+    return new Promise((resolve) => {
       setTimeout(() => {
         resolve('Login Success')
       }, 1000)
