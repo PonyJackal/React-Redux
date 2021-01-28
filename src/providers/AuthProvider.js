@@ -17,7 +17,7 @@ const AuthProvider = (props) => {
     }
 
     return (
-        <AuthContext.Provider value={{ login }} {...props} />
+        <AuthContext.Provider value={{ login, user }} {...props} />
     )
 }
 
