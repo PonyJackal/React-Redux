@@ -34,7 +34,7 @@
     "start": "craco start",
     "build": "craco build",
     "test": "craco test --env=jsdom",
-    "eject": "craco eject",
+    "eject": "react-scripts eject",
     "stubapi": "json-server src/fakeAPI/db.json --port 8000"
   },
   "browserslist": [
