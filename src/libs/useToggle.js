@@ -1,15 +1,15 @@
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useState, useEffect, useCallback } from 'react'
 
 const useToggle = (initState = false) => {
-  const [status, setStatus] = useState(initState);
+  const [status, setStatus] = useState(initState)
 
   const toggle = useCallback(() => {
     setStatus((status) => {
-      return !status;
-    });
-  }, []);
+      return !status
+    })
+  }, [])
 
-  return [status, toggle];
-};
+  return [status, toggle]
+}
 
-export default useToggle;
+export default useToggle

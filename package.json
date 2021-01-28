@@ -47,7 +47,10 @@
     "build": "craco build",
     "test": "craco test --env=jsdom",
     "eject": "react-scripts eject",
-    "stubapi": "json-server src/fakeAPI/db.json --port 8000"
+    "stubapi": "json-server src/fakeAPI/db.json --port 8000",
+    "lint": "eslint ./ --ignore-path .gitignore",
+    "lint:fix": "npm run lint -- --fix",
+    "format": "prettier --write \"{,!(node_modules)/**/}*.js\""
   },
   "browserslist": [
     ">0.2%",

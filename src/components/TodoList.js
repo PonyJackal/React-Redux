@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect } from 'react'
 
 const TodoList = ({ data, searchTerm, onToggle, completed }) => {
   return (
@@ -8,12 +8,12 @@ const TodoList = ({ data, searchTerm, onToggle, completed }) => {
           (todo) =>
             (!searchTerm ||
               todo.title.toLowerCase().includes(searchTerm.toLowerCase())) &&
-            (!completed || todo.completed === completed)
+            (!completed || todo.completed === completed),
         )
         .map((todo) => {
           return (
             <li key={todo.id}>
-              <label className={todo.completed ? "completed-todo" : ""}>
+              <label className={todo.completed ? 'completed-todo' : ''}>
                 <input
                   type="checkbox"
                   checked={todo.completed}
@@ -22,10 +22,10 @@ const TodoList = ({ data, searchTerm, onToggle, completed }) => {
                 {todo.title}
               </label>
             </li>
-          );
+          )
         })}
     </ul>
-  );
-};
+  )
+}
 
-export default React.memo(TodoList);
+export default React.memo(TodoList)

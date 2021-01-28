@@ -12,14 +12,14 @@ const Login = () => {
   const [formData, setFormData] = useState({
     values: {
       email: '',
-      password: ''
+      password: '',
     },
     errors: {
       email: '',
-      password: ''
+      password: '',
     },
     isValid: false,
-    isSubmitted: false
+    isSubmitted: false,
   })
   //input change handler
   const handleChange = (event) => {
@@ -28,9 +28,9 @@ const Login = () => {
       ...formData,
       values: {
         ...formData.values,
-        [name]: value
+        [name]: value,
       },
-      isSubmitted: false
+      isSubmitted: false,
     })
   }
   //form submission handler
@@ -42,44 +42,41 @@ const Login = () => {
       ...formData,
       errors: {
         email: errors.email,
-        password: errors.password
+        password: errors.password,
       },
       isValid: isValid,
-      isSubmitted: true
+      isSubmitted: true,
     })
 
     if (isValid) {
       login({
-        email: formData.values.email
-      }).then(res => {
+        email: formData.values.email,
+      }).then((res) => {
         console.log(res)
         history.push('/home')
       })
     }
-
   }
   //form validation
   const validation = () => {
     const regex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i
     const errors = {
-      email: "",
-      password: ""
+      email: '',
+      password: '',
     }
 
     if (!formData.values.email) {
-      errors.email = "Email cannot be blank"
-    }
-    else if (!regex.test(formData.values.email)) {
-      errors.email = "Invalid email format"
+      errors.email = 'Email cannot be blank'
+    } else if (!regex.test(formData.values.email)) {
+      errors.email = 'Invalid email format'
     }
 
     if (!formData.values.password) {
-      errors.password = "Password cannot be blank"
+      errors.password = 'Password cannot be blank'
+    } else if (formData.values.password.length < 4) {
+      errors.password = 'Password must be more than 4 characters'
     }
-    else if (formData.values.password.length < 4) {
-      errors.password = "Password must be more than 4 characters"
-    }
-    return errors;
+    return errors
   }
 
   return (
@@ -97,7 +94,7 @@ const Login = () => {
             id="email"
             value={formData.values.email}
             onChange={handleChange}
-            className={formData.errors.email && "input-error"}
+            className={formData.errors.email && 'input-error'}
           />
           {formData.errors.email && (
             <span className="error">{formData.errors.email}</span>
@@ -112,14 +109,20 @@ const Login = () => {
             id="password"
             value={formData.values.password}
             onChange={handleChange}
-            className={formData.errors.password && "input-error"}
+            className={formData.errors.password && 'input-error'}
           />
           {formData.errors.password && (
             <span className="error">{formData.errors.password}</span>
           )}
         </div>
 
-        <button data-testid="submit-button" type="button" onClick={handleSubmit}>Sign In</button>
+        <button
+          data-testid="submit-button"
+          type="button"
+          onClick={handleSubmit}
+        >
+          Sign In
+        </button>
       </form>
     </div>
   )
