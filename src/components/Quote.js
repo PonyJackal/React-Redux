@@ -1,16 +1,19 @@
 import React from 'react'
-import useFetch from '../libs/useFetch'
+import useQuotes from '../libs/useQuotes'
 
 const Quote = () => {
-  const { data, error, loading } = useFetch('http://localhost:8000/quotes')
+  const { data, error, isLoading } = useQuotes()
+  const index = Math.floor(Math.random() * Math.floor(1643))
 
-  if (error) return `Error: ${error}`
+  if (isLoading) return <h3>Loading ...</h3>
 
-  if (loading) return <h3>Loading ...</h3>
+  if (error) return `Error: ${error.message}`
+
+  console.log('data', data)
 
   return (
     <h2>
-      {data[0].text} {data[0].author}
+      {data[index].text} {data[index].author}
     </h2>
   )
 }
