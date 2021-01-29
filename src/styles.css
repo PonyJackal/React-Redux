@@ -1,7 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-/* 
+
 *,
 *::after,
 *::before {
@@ -13,20 +13,27 @@
 
 body {
   font-family: 62.5%;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
-    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
+    Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   height: 100vh;
   background: #f1faee;
   display: flex;
   justify-content: center;
+  /* background-image: url('https://picsum.photos/4096/2160?grayscale'); */
+  background-image: url('assets/images/bg.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
-
 
 .App {
   font-family: sans-serif;
   text-align: center;
 }
 
+.TodoApp {
+  color: white;
+}
 .TodoApp label {
   cursor: pointer;
   user-select: none;
@@ -55,9 +62,9 @@ body {
 
 .todo-container li {
   margin: 10px 0;
-  font-size: 20px;
+  font-size: 40px;
 }
 
 .completed-todo {
   text-decoration: line-through;
-} */
+}

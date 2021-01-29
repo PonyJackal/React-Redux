@@ -11,7 +11,7 @@ const RouteWithComponent = (props) => {
 }
 
 RouteWithComponent.propTypes = {
-  component: PropTypes.instanceOf(React.Component).isRequired,
+  component: PropTypes.elementType.isRequired,
 }
 
 export default RouteWithComponent
