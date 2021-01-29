@@ -1,9 +1,10 @@
 import React from 'react'
 import useQuotes from '../libs/useQuotes'
 
+const index = Math.floor(Math.random() * Math.floor(1643))
+
 const Quote = () => {
   const { data, error, isLoading } = useQuotes()
-  const index = Math.floor(Math.random() * Math.floor(1643))
 
   if (isLoading) return <h3>Loading ...</h3>
 
