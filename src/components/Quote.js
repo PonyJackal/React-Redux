@@ -9,8 +9,6 @@ const Quote = () => {
 
   if (error) return `Error: ${error.message}`
 
-  console.log('data', data)
-
   return (
     <h2>
       {data[index].text} {data[index].author}
@@ -18,4 +16,4 @@ const Quote = () => {
   )
 }
 
-export default Quote
+export default React.memo(Quote)

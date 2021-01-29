@@ -1,6 +1,10 @@
 import { useQuery } from 'react-query'
+import { ApiClient } from '../ApiClient'
 
-const fetchQuotes = () => fetch('http://localhost:8000/quotes')
+const fetchQuotes = () =>
+  ApiClient()
+    .get('quotes')
+    .then((res) => res.data)
 
 const useQuotes = () => useQuery('fetchQuotes', fetchQuotes)
 
